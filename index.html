@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OWN THE INNER GAME – Free Live Webinar | April 29, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /*
+      Agrandir Grand — add your font files and uncomment:
+
+      @font-face {
+        font-family: 'Agrandir Grand';
+        src: url('fonts/Agrandir-Grand.woff2') format('woff2');
+        font-weight: 900; font-style: normal; font-display: swap;
+      }
+    */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:       #9D33DD;
+      --purple-mid:   #CB6CE6;
+      --purple-light: #E2A9F1;
+      --purple-dark:  #29063D;
+      --black:        #000;
+      --surface:      #0D0D0D;
+      --border:       rgba(157,51,221,0.22);
+      --white:        #FFFFFF;
+      --grey:         #AAAAAA;
+      --grey-dim:     #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2 {
+      font-family: 'Agrandir Grand', 'Montserrat', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple-mid);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    .section     { padding: 80px 24px; }
+    .section-alt { background: var(--surface); }
+
+    .rule { width: 48px; height: 3px; background: var(--purple); margin: 0 0 28px; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--purple);
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 88px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 500px;
+      background: radial-gradient(circle, rgba(157,51,221,0.15) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5.5vw, 64px);
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .hero h1 .sub-title {
+      display: block;
+      font-size: clamp(15px, 2vw, 22px);
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    .hero-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(14px, 1.5vw, 17px);
+      color: var(--grey);
+      font-style: italic;
+      max-width: 560px;
+      margin: 20px auto 44px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    /* ── DATE ROW ── */
+    .date-row {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .date-cell {
+      padding: 13px 26px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .date-cell:last-child { border-right: none; }
+
+    .dc-l {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple-mid);
+      display: block; margin-bottom: 4px;
+    }
+
+    .dc-v { font-size: 15px; font-weight: 700; }
+
+    /* ── COUNTDOWN ── */
+    .countdown { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+    .cd-unit {
+      background: #111; border: 1px solid var(--border);
+      padding: 14px 20px; text-align: center; min-width: 68px;
+    }
+
+    .cd-num {
+      display: block;
+      font-family: 'Agrandir Grand', 'Montserrat', sans-serif;
+      font-size: 32px; font-weight: 900;
+      color: var(--purple-mid); line-height: 1; letter-spacing: -0.02em;
+    }
+
+    .cd-lbl {
+      display: block; font-size: 9px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--grey-dim); margin-top: 5px;
+    }
+
+    /* ── LEARNINGS ── */
+    .learnings { list-style: none; margin: 0; }
+
+    .learnings li {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .learnings li:last-child { border-bottom: none; }
+
+    .l-n {
+      flex-shrink: 0;
+      font-size: 11px; font-weight: 900;
+      letter-spacing: 0.08em; color: var(--purple-mid);
+      margin-top: 2px; width: 24px;
+    }
+
+    .l-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; color: var(--white); line-height: 1.5;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+    .about-img {
+      background: #111; border: 1px solid var(--border);
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--grey-dim); font-size: 12px; text-align: center; padding: 20px; line-height: 1.6;
+    }
+
+    .about-bio {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; color: var(--grey); line-height: 1.7;
+    }
+
+    .about-bio p { margin-bottom: 14px; }
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    /* ── SOCIAL PROOF ── */
+    .t-card {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      padding: 30px 32px;
+      margin-bottom: 16px;
+    }
+
+    .t-card:last-child { margin-bottom: 0; }
+
+    .t-card blockquote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; font-style: italic;
+      color: var(--white); line-height: 1.6; margin-bottom: 14px;
+    }
+
+    .t-name {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-mid);
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      background: var(--purple-dark);
+      padding: 88px 24px;
+    }
+
+    .form-inner { max-width: 500px; margin: 0 auto; text-align: center; }
+
+    .spots-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(157,51,221,0.2); border: 1px solid rgba(157,51,221,0.5);
+      color: var(--purple-light); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 8px 16px; margin-bottom: 28px;
+    }
+
+    .spots-pill::before {
+      content: ''; width: 7px; height: 7px;
+      background: var(--purple-mid); border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .form-inner h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 28px;
+    }
+
+    .form-trust {
+      font-size: 12px; color: var(--grey-dim); margin-top: 14px; letter-spacing: 0.03em;
+    }
+
+    /* ── FAQ ── */
+    .faq-item { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      font-size: 14px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--white); margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; color: var(--grey); line-height: 1.65; margin: 0;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta { padding: 20px 24px; text-align: center; position: relative; overflow: hidden; }
+
+    .final-cta::after {
+      content: '';
+      position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%);
+      width: 500px; height: 380px;
+      background: radial-gradient(circle, rgba(157,51,221,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta h2 { font-size: clamp(26px, 4vw, 50px); max-width: 600px; margin: 0 auto 32px; position: relative; }
+
+    .btn {
+      display: inline-block;
+      background: transparent; border: 1px solid var(--purple);
+      color: var(--purple-light);
+      font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 18px 48px; text-decoration: none;
+      transition: background .2s, color .2s; cursor: pointer; position: relative;
+    }
+
+    .btn:hover { background: var(--purple); color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 24px; border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+      font-size: 12px; color: var(--grey-dim); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    footer a { color: var(--purple-mid); text-decoration: none; }
+
+    /* ── AC FORM OVERRIDES ── */
+    #_form_1_ {
+      background: transparent !important; border: none !important;
+      padding: 0 !important; margin: 0 !important;
+      box-shadow: none !important; max-width: 100% !important;
+    }
+    #_form_1_ ._form-label, #_form_1_ ._form_element ._form-label {
+      color: var(--grey) !important; font-family: 'Montserrat', sans-serif !important;
+      font-size: 11px !important; font-weight: 700 !important;
+      letter-spacing: 0.1em !important; text-transform: uppercase !important; margin-bottom: 8px !important;
+    }
+    #_form_1_ ._form_element :is(input[type="text"], input[type="email"]) {
+      background: rgba(0,0,0,0.4) !important;
+      border-top: 1px solid rgba(157,51,221,0.35) !important;
+      border-left: 1px solid rgba(157,51,221,0.35) !important;
+      border-right: 1px solid rgba(157,51,221,0.35) !important;
+      border-bottom: 1px solid rgba(157,51,221,0.35) !important;
+      border-radius: 0 !important; color: #fff !important;
+      font-family: 'Montserrat', sans-serif !important;
+      font-size: 15px !important; padding: 14px 18px !important;
+    }
+    #_form_1_ ._form_element :is(input[type="text"], input[type="email"])::placeholder { color: #555 !important; }
+    #_form_1_ ._submit {
+      background: #9D33DD !important; border: none !important; border-radius: 0 !important;
+      color: #fff !important; font-family: 'Montserrat', sans-serif !important;
+      font-size: 13px !important; font-weight: 700 !important;
+      letter-spacing: 0.14em !important; text-transform: uppercase !important;
+      padding: 18px 24px !important; width: 100% !important; margin-top: 10px !important;
+    }
+    #_form_1_ ._submit:hover:not(:disabled) { background: #511A72 !important; }
+    #_form_1_ ._form-branding { display: none !important; }
+    #_form_1_ .field-required { color: #CB6CE6 !important; }
+    #_form_1_ ._form-thank-you {
+      color: #E2A9F1 !important; font-family: 'Montserrat', sans-serif !important;
+      font-size: 15px !important; font-weight: 700 !important;
+      letter-spacing: 0.06em !important; text-transform: uppercase !important; padding: 20px 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">Free Live Webinar &nbsp;·&nbsp; April 29, 2026 &nbsp;·<br>2:00 PM CET &nbsp;·&nbsp; Limited Spots &nbsp;·<br>Will Be Recorded</div>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="label">Free Live Webinar · 45 Minutes</span>
+  <h1>
+    Own The Inner Game<br>
+    <span class="sub-title" style="color:var(--purple-mid);">Unlock Your Full Potential · Perform On Demand</span>
+    <span style="display:block; font-size:clamp(15px,2vw,22px); color:#fff; font-weight:700; letter-spacing:0.04em; margin-top:8px; position:relative;">Stay Calm, Clear and Unshakeable Under Pressure</span>
+  </h1>
+  <p class="hero-desc">You have the skills. You have put in the work.<br>Now it's time to train the system that gives you access to your A-Game.</p>
+
+  <div style="margin-bottom: 36px;">
+    <a href="#register" class="btn" style="font-size:15px; padding:22px 56px; background:var(--purple); color:#fff; border-color:var(--purple);">Reserve My Free Spot</a>
+    <p style="font-size:11px; color:var(--grey-dim); margin-top:12px; letter-spacing:0.06em;">Free · 45 minutes · Limited spots</p>
+  </div>
+
+  <div class="date-row">
+    <div class="date-cell"><span class="dc-l">Date</span><span class="dc-v">April 29, 2026</span></div>
+    <div class="date-cell"><span class="dc-l">Time</span><span class="dc-v">2:00 PM CET</span></div>
+    <div class="date-cell"><span class="dc-l">Duration</span><span class="dc-v">45 Min</span></div>
+    <div class="date-cell"><span class="dc-l">Cost</span><span class="dc-v">Free</span></div>
+  </div>
+
+  <p style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--grey-dim); margin-top:32px; margin-bottom:14px;">Starts in</p>
+  <div class="countdown">
+    <div class="cd-unit"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Days</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Hours</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-min">--</span><span class="cd-lbl">Min</span></div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section style="padding: 16px 24px 40px;">
+  <div class="container">
+    <span class="label">This webinar is for you if</span>
+    <div class="rule"></div>
+    <ul class="learnings">
+      <li>
+        <span class="l-n">→</span>
+        <span class="l-text">You're technically solid — but your A-Game disappears exactly when it matters most</span>
+      </li>
+      <li>
+        <span class="l-n">→</span>
+        <span class="l-text">You've tried mindset work, meditation, or studying more — and it still doesn't hold under pressure</span>
+      </li>
+      <li>
+        <span class="l-n">→</span>
+        <span class="l-text">You know what the right play is — but something stops you from making it</span>
+      </li>
+      <li>
+        <span class="l-n">→</span>
+        <span class="l-text">You're ready to stop grinding harder and start performing smarter</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- MID CTA 1 -->
+<section style="padding: 0 24px 24px; text-align:center; background: var(--black);">
+  <a href="#register" class="btn" style="font-size:15px; padding:22px 56px; background:var(--purple); color:#fff; border-color:var(--purple);">I Am In</a>
+</section>
+
+<!-- LEARNINGS -->
+<section class="section-alt" style="padding: 40px 24px;">
+  <div class="container">
+    <span class="label">After this webinar you will understand</span>
+    <div class="rule"></div>
+    <ul class="learnings">
+      <li>
+        <span class="l-n">01</span>
+        <span class="l-text">Why your current approach isn't working</span>
+      </li>
+      <li>
+        <span class="l-n">02</span>
+        <span class="l-text">Why your A-Game disappears under pressure</span>
+      </li>
+      <li>
+        <span class="l-n">03</span>
+        <span class="l-text">What actually unlocks your full potential</span>
+      </li>
+      <li>
+        <span class="l-n">04</span>
+        <span class="l-text">What the secret strategy of successful high performers is</span>
+      </li>
+      <li>
+        <span class="l-n">05</span>
+        <span class="l-text">How to access this secret strategy for your A-Game on demand</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT CTA -->
+<section style="padding: 0 24px 24px; text-align:center; background: var(--surface);">
+  <a href="#register" class="btn" style="font-size:15px; padding:22px 56px; background:var(--purple); color:#fff; border-color:var(--purple);">Reserve My Free Spot</a>
+  <p style="font-size:11px; color:var(--grey-dim); margin-top:12px; letter-spacing:0.06em;">Free · 45 minutes · April 29, 2026</p>
+</section>
+
+<!-- ABOUT -->
+<section class="section-alt" style="padding: 40px 24px;">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img" style="padding:0; overflow:hidden;">
+        <img src="Fotos/IMG_8036.jpg" alt="Leonie Roessle" style="width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block;" />
+      </div>
+      <div>
+        <span class="label">Hi, I'm Leonie</span>
+        <div class="rule"></div>
+        <div class="about-bio">
+          <p>I work globally with entrepreneurs, CEOs, millionaires, doctors and high-stakes poker players.</p>
+          <p>My background is in performance psychology and emotional mastery. Over the years I discovered one thing all of the above had in common: they could not succeed because their internal state locked up their access to their skills, knowledge and potential when it came to their performance.</p>
+          <p>Once I understood that — everything clicked. I found the missing piece and developed a full system method which solves this problem.</p>
+          <p style="color:var(--purple-light); font-style:normal; font-size:15px; font-family:'Montserrat',sans-serif; font-weight:700; letter-spacing:0.04em;">And that's exactly what this webinar is about.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="label">What players say</span>
+    <div class="rule"></div>
+    <div class="t-card">
+      <blockquote>"This is solving the problem the poker industry has been trying to solve for years."</blockquote>
+      <span class="t-name">Own The Inner Game Participant</span>
+    </div>
+    <div class="t-card">
+      <blockquote>"I finished 3rd in a major tournament — calm the entire time. I felt like the player I always knew I could be."</blockquote>
+      <span class="t-name">Marcus T. &nbsp;·&nbsp; Tournament Player</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="register">
+  <div class="form-inner">
+    <div class="spots-pill">Limited spots available</div>
+    <h2>Secure Your<br><span style="color:var(--purple-mid);">Spot Now</span></h2>
+
+    <style>@import url(https://fonts.bunny.net/css?family=sans-serif:400|IBM+Plex+Sans:400);</style>
+    <style>#_form_1_{font-size:14px;line-height:1.6;font-family:arial, helvetica, sans-serif;margin:0;box-shadow:none}._form_hide{display:none;visibility:hidden}._form_show{display:block;visibility:visible}#_form_1_ input[type="text"],#_form_1_ input[type="tel"],#_form_1_ input[type="date"],#_form_1_ textarea{padding:12px;height:auto;border:#979797 1px solid;border-radius:4px;color:#000 !important;font-size:14px;box-sizing:border-box}#_form_1_ ._submit{cursor:pointer;font-family:arial,sans-serif;font-size:14px;text-align:center;background:#9d33dd !important;border:0 !important;border-radius:4px !important;color:#ffffff !important;padding:10px !important}#_form_1_ ._submit:disabled{cursor:not-allowed;opacity:0.4}#_form_1_ ._submit.processing{position:relative}#_form_1_ ._submit.processing::before{content:"";width:1em;height:1em;position:absolute;z-index:1;top:50%;left:50%;border:double 3px transparent;border-radius:50%;background-image:linear-gradient(#9d33dd,#9d33dd),conic-gradient(#9d33dd,#ffffff);background-origin:border-box;background-clip:content-box,border-box;animation:1200ms ease 0s infinite normal none running _spin}@keyframes _spin{0%{transform:translate(-50%,-50%) rotate(90deg)}100%{transform:translate(-50%,-50%) rotate(450deg)}}#_form_1_ ._form-branding{color:#fff;font-size:10px;clear:both;text-align:left;margin-top:30px;font-weight:100}#_form_1_ ._form-branding ._logo{display:block;width:130px;height:14px;margin-top:6px;background-image:url("https://d226aj4ao1t61q.cloudfront.net/hh9ujqgv5_aclogo_li.png");background-size:130px auto;background-repeat:no-repeat}#_form_1_ .form-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}#_form_1_ ._form-label,#_form_1_ ._form_element ._form-label{font-weight:bold;margin-bottom:5px;display:block}#_form_1_._dark ._form-branding ._logo{background-image:url("https://d226aj4ao1t61q.cloudfront.net/jftq2c8s_aclogo_dk.png")}#_form_1_ ._form_element{position:relative;margin-bottom:10px;font-size:0;max-width:100%}#_form_1_ ._form_element *{font-size:14px}#_form_1_ ._form_element._clear{clear:both;width:100%;float:none}#_form_1_ ._form_element :is(textarea,select,input[type="text"],input[type="date"],input[type="phone"],input[type="email"]){background:white;color:black !important;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc;border-radius:0}#_form_1_ ._form_element input[type="text"],#_form_1_ ._form_element input[type="date"],#_form_1_ ._form_element select,#_form_1_ ._form_element textarea:not(.g-recaptcha-response){display:block;width:100%;box-sizing:border-box;font-family:inherit}#_form_1_ ._field-wrapper{position:relative}#_form_1_ ._full_width{width:100%}#_form_1_ input[type="text"]._has_error,#_form_1_ textarea._has_error{border:#F37C7B 1px solid}#_form_1_ ._error{display:block;position:absolute;font-size:14px;z-index:10000001}#_form_1_ ._error._above{padding-bottom:4px;bottom:39px;right:0}#_form_1_ ._error._below{padding-top:8px;top:100%;right:0}#_form_1_ ._error._above ._error-arrow{bottom:-4px;right:15px;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #FFDDDD}#_form_1_ ._error._below ._error-arrow{top:0;right:15px;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid #FFDDDD}#_form_1_ ._error-inner{padding:12px 12px 12px 36px;background-color:#FFDDDD;background-image:url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM9 3V9H7V3H9ZM9 13V11H7V13H9Z' fill='%23CA0000'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:12px center;font-size:14px;font-family:arial,sans-serif;font-weight:600;line-height:16px;color:#000;text-align:center;text-decoration:none;border-radius:4px;box-shadow:0 1px 4px rgba(31,33,41,.3)}#_form_1_ ._error-inner._form_error{margin-bottom:5px;text-align:left}#_form_1_ ._button-wrapper ._error-inner._form_error{position:static}#_form_1_ ._error-inner._no_arrow{margin-bottom:10px}#_form_1_ ._error-arrow{position:absolute;width:0;height:0}#_form_1_{position:relative;text-align:left;margin:0 auto;padding:20px;box-sizing:border-box;background:white !important;border:0 !important;max-width:500px;border-radius:0 !important;color:#000}#_form_1_ ._show_be_error{min-width:100%}#_form_1_._inline-form ._form-label,#_form_1_._inline-form ._form-emailidentifier,#_form_1_._inline-form ._form-checkbox-option-label{font-family:sans-serif;font-size:14px;font-weight:700;line-height:1.6em;color:black}#_form_1_._inline-form ._submit{margin-top:12px;font-family:sans-serif;font-size:14px;font-weight:400}#_form_1_._inline-form ._form-branding{font-family:"IBM Plex Sans",Helvetica,sans-serif;font-size:13px;font-weight:100}#_form_1_:before,#_form_1_:after{content:" ";display:table}#_form_1_:after{clear:both}#_form_1_ ._form-thank-you{position:relative;left:0;right:0;text-align:center;font-size:18px}#_form_1_ ._form-pc-confirmation ._submit{margin-top:16px}#_form_1_ .field-required{color:#FF0000}@media(min-width:320px) and (max-width:667px){#_form_1_{margin:0;width:100%;min-width:100%;max-width:100%;box-sizing:border-box}#_form_1_ ._form_element{margin:0 0 20px;padding:0;width:100%}#_form_1_ input[type="text"]{padding-left:10px;padding-right:10px;font-size:16px;line-height:1.3em}#_form_1_ button[type="submit"]{padding:20px;font-size:1.5em}}</style>
+
+    <form method="POST" action="https://leonieroessle68052.activehosted.com/proc.php" id="_form_1_" class="_form _form_1 _inline-form _dark" novalidate data-styles-version="5">
+      <input type="hidden" name="u" value="1" />
+      <input type="hidden" name="f" value="1" />
+      <input type="hidden" name="s" />
+      <input type="hidden" name="c" value="0" />
+      <input type="hidden" name="m" value="0" />
+      <input type="hidden" name="act" value="sub" />
+      <input type="hidden" name="v" value="2" />
+      <input type="hidden" name="or" value="0df98ca9-3ee9-495a-831b-f8ed2350ebae" />
+      <div class="_form-content">
+        <div class="_form_element _field_name _full_width">
+          <label for="fullname" class="_form-label">Name<span class="field-required">*</span></label>
+          <div class="_field-wrapper">
+            <input type="text" id="fullname" name="fullname" placeholder="Your full name" required/>
+          </div>
+        </div>
+        <div class="_form_element _field_email _full_width">
+          <label for="email" class="_form-label">E-Mail<span class="field-required">*</span></label>
+          <div class="_field-wrapper">
+            <input type="text" id="email" name="email" placeholder="Your email address" required/>
+          </div>
+        </div>
+        <div class="_form_element _x71696345 _full_width">
+          <label for="phone" class="_form-label">Mobile number<span class="field-required">*</span></label>
+          <div class="_field-wrapper">
+            <input type="text" id="phone" name="phone" placeholder="+49 123 456789 (incl. country code)" required/>
+          </div>
+        </div>
+        <label for="sms_consent" class="sms_consent_checkbox">
+          <input type="checkbox" id="sms_consent" name="sms_consent" required />
+          <div class="sms_consent_message sms_consent_mini">
+            By submitting this form, you agree to receive marketing messages via WhatsApp from Leonie Roessle at the provided number. Consent is not a condition of purchase. You can unsubscribe at any time by replying STOP.
+          </div>
+        </label>
+        <div class="_button-wrapper _full_width">
+          <button id="_form_1_submit" class="_submit" type="submit">I'm In — Reserve My Spot</button>
+        </div>
+        <div class="_clear-element"></div>
+      </div>
+      <div class="_form-thank-you" style="display:none;"></div>
+      <div class="_form-branding">
+        <div class="_marketing-by">Marketing von</div>
+        <a href="https://www.activecampaign.com/?utm_medium=referral&utm_campaign=acforms" class="_logo"><span class="form-sr-only">ActiveCampaign</span></a>
+      </div>
+    </form>
+    <style>
+      /* Override AC defaults — placed after AC styles so these win */
+      #_form_1_ {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        color: #fff !important;
+      }
+      #_form_1_ ._form_element :is(input[type="text"], input[type="email"]) {
+        background: rgba(0,0,0,0.45) !important;
+        border: 1px solid rgba(157,51,221,0.5) !important;
+        border-radius: 0 !important;
+        color: #fff !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 15px !important;
+        padding: 14px 18px !important;
+      }
+      #_form_1_ ._form_element :is(input[type="text"], input[type="email"])::placeholder {
+        color: rgba(255,255,255,0.3) !important;
+      }
+      #_form_1_ ._form_element :is(input[type="text"], input[type="email"]):focus {
+        outline: none !important;
+        border-color: rgba(157,51,221,0.9) !important;
+      }
+      #_form_1_ ._form-label, #_form_1_ ._form_element ._form-label {
+        color: rgba(255,255,255,0.6) !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.1em !important;
+        text-transform: uppercase !important;
+        margin-bottom: 8px !important;
+      }
+      #_form_1_ ._submit {
+        background: #9D33DD !important;
+        border: none !important;
+        border-radius: 0 !important;
+        color: #fff !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        padding: 18px 24px !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+        cursor: pointer !important;
+      }
+      #_form_1_ ._submit:hover:not(:disabled) { background: #7a25ad !important; }
+      #_form_1_ ._form-branding { display: none !important; }
+      #_form_1_ .field-required { color: #CB6CE6 !important; }
+      #_form_1_ ._form-thank-you {
+        color: #E2A9F1 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.06em !important;
+        text-transform: uppercase !important;
+        padding: 20px 0 !important;
+      }
+      #_form_1_ ._error-inner {
+        background-color: rgba(255,80,80,0.15) !important;
+        color: #ffaaaa !important;
+        border-radius: 0 !important;
+      }
+      /* Phone input */
+      #_form_1_ ._form_element input#phone {
+        background: rgba(0,0,0,0.45) !important;
+        border: 1px solid rgba(157,51,221,0.5) !important;
+        border-radius: 0 !important;
+        color: #fff !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 15px !important;
+        padding: 14px 18px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      #_form_1_ ._form_element input#phone::placeholder { color: rgba(255,255,255,0.3) !important; }
+      /* SMS consent */
+      #_form_1_ .sms_consent_checkbox { padding: 16px 0 !important; }
+      #_form_1_ .sms_consent_message {
+        color: rgba(255,255,255,0.35) !important;
+        font-size: 11px !important;
+        line-height: 1.6 !important;
+      }
+      #_form_1_ input[type="checkbox"] {
+        accent-color: var(--purple);
+        margin-top: 2px !important;
+        flex-shrink: 0;
+      }
+    </style>
+    <p class="form-trust">Free. No credit card. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="label">Questions</span>
+    <div class="rule"></div>
+    <div class="faq-item">
+      <div class="faq-q">Unfortunately I can't attend live. Will this be recorded?</div>
+      <p class="faq-a">Yes. But players who attend live consistently get more out of it — you can ask questions in real time. Come live if you can.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this just mindset coaching?</div>
+      <p class="faq-a">No. This is science-based, rooted in neuro-psychology. It goes far beyond mindset — because mindset alone can't override what's happening at a deeper level.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I already study a lot. Is this for me?</div>
+      <p class="faq-a">Especially for you. If more knowledge hasn't fixed your performance under pressure — this will show you what will.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>
+    Unlock Your Full Potential.<br>
+    <span style="color:var(--purple-mid);">Perform On Demand.</span>
+  </h2>
+  <a href="#register" class="btn">Reserve My Free Spot</a>
+</section>
+
+<footer>
+  <p>© 2026 Own The Inner Game &nbsp;·&nbsp; Leonie Roessle &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Imprint</a></p>
+</footer>
+
+<script>
+  const target = new Date('2026-04-29T13:00:00Z');
+  function tick() {
+    const diff = target - new Date();
+    if (diff <= 0) {
+      document.querySelector('.countdown').innerHTML = '<span style="color:var(--purple-mid);font-weight:900;font-size:18px;letter-spacing:.1em;text-transform:uppercase;">We\'re Live Right Now</span>';
+      return;
+    }
+    document.getElementById('cd-days').textContent  = String(Math.floor(diff/86400000)).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+    document.getElementById('cd-min').textContent   = String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+    document.getElementById('cd-sec').textContent   = String(Math.floor(diff%60000/1000)).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+</script>
+
+<script>
+window.cfields = [];
+window._show_thank_you = function(id, message, trackcmp_url, email) {
+    window.location.href = 'confirmation-page.html';
+};
+window._show_unsubscribe = function(id, message, trackcmp_url, email) {
+    var form = document.getElementById('_form_' + id + '_'), unsub = form.querySelector('._form-thank-you');
+    form.querySelector('._form-content').style.display = 'none';
+    unsub.style.display = 'block';
+    form.insertAdjacentHTML('afterend', message);
+};
+window._show_error = function(id, message, html) {
+    var form = document.getElementById('_form_' + id + '_'),
+        err = document.createElement('div'),
+        button = form.querySelector('button[type="submit"]'),
+        old_error = form.querySelector('._form_error');
+    if (old_error) old_error.parentNode.removeChild(old_error);
+    err.innerHTML = message;
+    err.className = '_error-inner _form_error _no_arrow';
+    var wrapper = document.createElement('div');
+    wrapper.className = '_form-inner _show_be_error';
+    wrapper.appendChild(err);
+    button.parentNode.insertBefore(wrapper, button);
+    var submitButton = form.querySelector('[id^="_form"][id$="_submit"]');
+    submitButton.disabled = false;
+    submitButton.classList.remove('processing');
+    if (html) {
+        var div = document.createElement('div');
+        div.className = '_error-html';
+        div.innerHTML = html;
+        err.appendChild(div);
+    }
+};
+window._load_script = function(url, callback, isSubmit) {
+    var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+    var submitButton = document.querySelector('#_form_1_submit');
+    script.charset = 'utf-8';
+    script.src = url;
+    if (callback) {
+        script.onload = script.onreadystatechange = function() {
+            if (!r && (!this.readyState || this.readyState == 'complete')) {
+                r = true;
+                callback();
+            }
+        };
+    }
+    script.onerror = function() {
+        if (isSubmit) {
+            _show_error("1", "Your submission could not be sent. Please try again.");
+            submitButton.disabled = false;
+            submitButton.classList.remove('processing');
+        }
+    };
+    head.appendChild(script);
+};
+(function() {
+    var iti;
+    if (window.location.search.search("excludeform") !== -1) return false;
+    var getCookie = function(name) {
+        var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+        return match ? match[2] : localStorage.getItem(name);
+    };
+    var addEvent = function(element, event, func) {
+        if (element.addEventListener) {
+            element.addEventListener(event, func);
+        } else {
+            var oldFunc = element['on' + event];
+            element['on' + event] = function() {
+                oldFunc.apply(this, arguments);
+                func.apply(this, arguments);
+            };
+        }
+    };
+    var _removed = false;
+    var form_to_submit = document.getElementById('_form_1_');
+    var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+
+    var getUrlParam = function(name) {
+        if (name.toLowerCase() !== 'email') {
+            var params = new URLSearchParams(window.location.search);
+            return params.get(name) || false;
+        }
+        var qString = window.location.search;
+        if (!qString) return false;
+        var parameters = qString.substr(1).split('&');
+        for (var i = 0; i < parameters.length; i++) {
+            var parameter = parameters[i].split('=');
+            if (parameter[0].toLowerCase() === 'email') {
+                return parameter[1] === undefined ? true : decodeURIComponent(parameter[1]);
+            }
+        }
+        return false;
+    };
+
+    for (var i = 0; i < allInputs.length; i++) {
+        var regexStr = "field\\[(\\d+)\\]";
+        var results = new RegExp(regexStr).exec(allInputs[i].name);
+        if (results != undefined) {
+            allInputs[i].dataset.name = allInputs[i].name.match(/\[time\]$/)
+                ? `${window.cfields[results[1]]}_time`
+                : window.cfields[results[1]];
+        } else {
+            allInputs[i].dataset.name = allInputs[i].name;
+        }
+        var fieldVal = getUrlParam(allInputs[i].dataset.name);
+        if (fieldVal) {
+            if (allInputs[i].dataset.autofill === "false") continue;
+            if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+                if (allInputs[i].value == fieldVal) allInputs[i].checked = true;
+            } else {
+                allInputs[i].value = fieldVal;
+            }
+        }
+    }
+
+    var remove_tooltips = function() {
+        for (var i = 0; i < tooltips.length; i++) {
+            tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+        }
+        tooltips = [];
+    };
+    var remove_tooltip = function(elem) {
+        for (var i = 0; i < tooltips.length; i++) {
+            if (tooltips[i].elem === elem) {
+                tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+                tooltips.splice(i, 1);
+                return;
+            }
+        }
+    };
+    var create_tooltip = function(elem, text) {
+        var tooltip = document.createElement('div'),
+            arrow = document.createElement('div'),
+            inner = document.createElement('div'), new_tooltip = {};
+        tooltip.id = `${elem.id}-error`;
+        tooltip.setAttribute('role', 'alert');
+        if (elem.type != 'radio' && (elem.type != 'checkbox' || elem.name === 'sms_consent')) {
+            tooltip.className = '_error';
+            arrow.className = '_error-arrow';
+            inner.className = '_error-inner';
+            inner.innerHTML = text;
+            tooltip.appendChild(arrow);
+            tooltip.appendChild(inner);
+            elem.parentNode.appendChild(tooltip);
+        } else {
+            tooltip.className = '_error-inner _no_arrow';
+            tooltip.innerHTML = text;
+            elem.parentNode.insertBefore(tooltip, elem);
+            new_tooltip.no_arrow = true;
+        }
+        new_tooltip.tip = tooltip;
+        new_tooltip.elem = elem;
+        tooltips.push(new_tooltip);
+        return new_tooltip;
+    };
+    var resize_tooltip = function(tooltip) {
+        var rect = tooltip.elem.getBoundingClientRect();
+        var doc = document.documentElement,
+            scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
+        if (scrollPosition < 40) {
+            tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+        } else {
+            tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+        }
+    };
+    var resize_tooltips = function() {
+        if (_removed) return;
+        for (var i = 0; i < tooltips.length; i++) {
+            if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+        }
+    };
+    var validate_field = function(elem, remove) {
+        var tooltip = null, value = elem.value, no_error = true;
+        remove ? remove_tooltip(elem) : false;
+        elem.removeAttribute('aria-invalid');
+        elem.removeAttribute('aria-describedby');
+        if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+        if (elem.getAttribute('required') !== null) {
+            if (elem.type == 'checkbox') {
+                if (!elem.checked) {
+                    no_error = false;
+                    elem.className = elem.className + ' _has_error';
+                    tooltip = create_tooltip(elem, "Please check this box to continue.");
+                }
+            } else if (value === undefined || value === null || value === '') {
+                elem.className = elem.className + ' _has_error';
+                no_error = false;
+                tooltip = create_tooltip(elem, "Please fill in this required field.");
+            }
+        }
+        if (no_error && elem.name == 'email') {
+            if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+                elem.className = elem.className + ' _has_error';
+                no_error = false;
+                tooltip = create_tooltip(elem, "Please enter a valid email address.");
+            }
+        }
+        if (no_error && elem.id == 'phone') {
+            if (elem.value.trim() && typeof iti != 'undefined' && !iti.isValidNumber()) {
+                elem.className = elem.className + ' _has_error';
+                no_error = false;
+                tooltip = create_tooltip(elem, "Please enter a valid phone number.");
+            }
+        }
+        tooltip ? resize_tooltip(tooltip) : false;
+        if (!no_error && elem.hasAttribute('id')) {
+            elem.setAttribute('aria-invalid', 'true');
+            elem.setAttribute('aria-describedby', `${elem.id}-error`);
+        }
+        return no_error;
+    };
+    var needs_validate = function(el) {
+        if (el.getAttribute('required') !== null) return true;
+        if ((el.name === 'email' || el.id === 'phone' || el.id === 'sms_consent') && el.value !== "") return true;
+        return false;
+    };
+    var validate_form = function(e) {
+        var no_error = true;
+        if (!submitted) {
+            submitted = true;
+            for (var i = 0, len = allInputs.length; i < len; i++) {
+                var input = allInputs[i];
+                if (needs_validate(input)) {
+                    if (input.type == 'text' || input.type == 'tel') {
+                        addEvent(input, 'blur', function() { this.value = this.value.trim(); validate_field(this, true); });
+                        addEvent(input, 'input', function() { validate_field(this, true); });
+                    } else if (input.type == 'checkbox') {
+                        addEvent(input, 'change', function() { validate_field(this, true); });
+                    }
+                }
+            }
+        }
+        remove_tooltips();
+        for (var i = 0, len = allInputs.length; i < len; i++) {
+            var elem = allInputs[i];
+            if (needs_validate(elem)) {
+                if (elem.tagName.toLowerCase() !== "select" && elem.type !== 'checkbox') {
+                    elem.value = elem.value.trim();
+                }
+                validate_field(elem) ? true : no_error = false;
+            }
+        }
+        if (!no_error && e) e.preventDefault();
+        if (!no_error) {
+            const firstErr = form_to_submit.querySelector('._has_error:not([disabled])');
+            if (firstErr && typeof firstErr.focus === 'function') firstErr.focus();
+        }
+        resize_tooltips();
+        return no_error;
+    };
+    addEvent(window, 'resize', resize_tooltips);
+    addEvent(window, 'scroll', resize_tooltips);
+
+
+    var _form_serialize = function(form){if(!form||form.nodeName!=="FORM"){return}var i,j,q=[];for(i=0;i<form.elements.length;i++){if(form.elements[i].name===""){continue}switch(form.elements[i].nodeName){case"INPUT":switch(form.elements[i].type){case"tel":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].previousSibling.querySelector('div.iti__selected-dial-code').innerText)+encodeURIComponent(" ")+encodeURIComponent(form.elements[i].value));break;case"text":case"number":case"hidden":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"checkbox":case"radio":if(form.elements[i].checked){q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value))}break}break;case"TEXTAREA":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"SELECT":switch(form.elements[i].type){case"select-one":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break}}};return q.join("&")};
+
+    var form_submit = function(e) {
+        e.preventDefault();
+        if (validate_form()) {
+            if (form_to_submit.querySelector('input[name="phone"]') && typeof iti != 'undefined') {
+                form_to_submit.querySelector('input[name="phone"]').value = iti.getNumber();
+            }
+            var submitButton = e.target.querySelector('#_form_1_submit');
+            submitButton.disabled = true;
+            submitButton.classList.add('processing');
+            var serialized = _form_serialize(document.getElementById('_form_1_')).replace(/%0A/g, '\\n');
+            var err = form_to_submit.querySelector('._form_error');
+            if (err) err.parentNode.removeChild(err);
+            _load_script('https://leonieroessle68052.activehosted.com/proc.php?' + serialized + '&jsonp=true', null, true);
+        }
+        return false;
+    };
+    addEvent(form_to_submit, 'submit', form_submit);
+})();
+</script>
+
+</body>
+</html>

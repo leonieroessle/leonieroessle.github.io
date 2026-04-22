@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're In — OWN THE INNER GAME Webinar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /*
+      Agrandir Grand — add your font files and uncomment:
+      @font-face {
+        font-family: 'Agrandir Grand';
+        src: url('fonts/Agrandir-Grand.woff2') format('woff2');
+        font-weight: 900; font-style: normal; font-display: swap;
+      }
+    */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:       #9D33DD;
+      --purple-mid:   #CB6CE6;
+      --purple-light: #E2A9F1;
+      --purple-dark:  #29063D;
+      --black:        #000;
+      --surface:      #0D0D0D;
+      --border:       rgba(157,51,221,0.22);
+      --white:        #FFFFFF;
+      --grey:         #AAAAAA;
+      --grey-dim:     #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2 {
+      font-family: 'Agrandir Grand', 'Montserrat', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple-mid);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .section     { padding: 80px 24px; }
+    .section-alt { background: var(--surface); }
+    .rule { width: 48px; height: 3px; background: var(--purple); margin: 0 0 28px; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--purple);
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 48px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 500px;
+      background: radial-gradient(circle, rgba(157,51,221,0.15) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .check-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px; height: 64px;
+      border: 2px solid var(--purple-mid);
+      border-radius: 50%;
+      font-size: 26px;
+      margin-bottom: 32px;
+      background: rgba(157,51,221,0.1);
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5.5vw, 64px);
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .hero h1 .em { color: var(--purple-mid); }
+
+    .hero-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(17px, 2vw, 21px);
+      color: var(--grey);
+      font-style: italic;
+      max-width: 520px;
+      margin: 20px auto 44px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    /* ── DATE ROW ── */
+    .date-row {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .date-cell {
+      padding: 13px 26px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .date-cell:last-child { border-right: none; }
+
+    .dc-l {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple-mid);
+      display: block; margin-bottom: 4px;
+    }
+
+    .dc-v { font-size: 15px; font-weight: 700; }
+
+    /* ── STEPS ── */
+    .steps { list-style: none; margin: 0; }
+
+    .steps li {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .steps li:last-child { border-bottom: none; }
+
+    .s-n {
+      flex-shrink: 0;
+      font-size: 11px; font-weight: 900;
+      letter-spacing: 0.08em; color: var(--purple-mid);
+      margin-top: 2px; width: 24px;
+    }
+
+    .s-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 19px; color: var(--white); line-height: 1.5;
+    }
+
+    .s-text strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      display: block; margin-bottom: 4px; color: var(--white);
+    }
+
+    /* ── CALENDAR ── */
+    .cal-section {
+      background: var(--purple-dark);
+      padding: 72px 24px;
+      text-align: center;
+    }
+
+    .cal-section h2 { font-size: clamp(24px, 3.5vw, 40px); margin-bottom: 10px; }
+
+    .cal-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: 19px; color: rgba(255,255,255,0.6);
+      font-style: italic; margin-bottom: 32px; line-height: 1.6;
+    }
+
+    .cal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-cal {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 16px 28px;
+      border: none; text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-cal:hover { background: #7a25ad; }
+
+    .btn-cal-outline {
+      background: transparent;
+      border: 1px solid rgba(157,51,221,0.5);
+      color: var(--purple-light);
+    }
+
+    .btn-cal-outline:hover { background: rgba(157,51,221,0.15); }
+
+    .cal-note {
+      font-size: 12px; color: rgba(255,255,255,0.3);
+      margin-top: 16px; letter-spacing: 0.04em;
+    }
+
+    /* ── PREP QUESTION ── */
+    .prep-box {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      padding: 36px 40px;
+      background: rgba(157,51,221,0.05);
+    }
+
+    @media (max-width: 560px) { .prep-box { padding: 24px 20px; } }
+
+    .prep-box blockquote {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(18px, 2vw, 22px);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .prep-box p {
+      font-size: 13px; color: var(--grey-dim);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 24px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+      font-size: 12px; color: var(--grey-dim);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    footer a { color: var(--purple-mid); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="topbar">Almost There — 2 Steps To Go</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="check-circle">✉</div>
+  <h1>
+    One More Step.<br>
+    <span class="em">Confirm Your Email.</span>
+  </h1>
+  <p class="hero-desc">Check your inbox now and click the confirmation link — only then is your spot secured for April 29.</p>
+
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;position:relative;">
+    <div style="background:var(--purple);padding:14px 24px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">1 — Confirm Your Email</div>
+    <div style="border:1px solid var(--border);padding:14px 24px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);">2 — Add To Calendar</div>
+  </div>
+
+  <div class="date-row">
+    <div class="date-cell"><span class="dc-l">Date</span><span class="dc-v">April 29, 2026</span></div>
+    <div class="date-cell"><span class="dc-l">Time</span><span class="dc-v">2:00 PM CET</span></div>
+    <div class="date-cell"><span class="dc-l">Duration</span><span class="dc-v">45 Min</span></div>
+    <div class="date-cell"><span class="dc-l">Cost</span><span class="dc-v">Free</span></div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="cal-section">
+  <h2>Add it to your<br><span style="color:var(--purple-mid);">Calendar</span></h2>
+  <p class="cal-desc">Block the time now. Players who do this show up. Use the buttons below. Takes 10 seconds.</p>
+
+  <div class="cal-buttons">
+    <a class="btn-cal"
+      href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=OWN+THE+INNER+GAME+Webinar&dates=20260429T130000Z/20260429T134500Z&details=Live+webinar.+Access+link+in+your+confirmation+email.&location=Online"
+      target="_blank" rel="noopener">
+      + Google Calendar
+    </a>
+    <a class="btn-cal btn-cal-outline"
+      href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260429T130000Z%0ADTEND:20260429T134500Z%0ASUMMARY:OWN%20THE%20INNER%20GAME%20Webinar%0ADESCRIPTION:Free%20live%20webinar.%20Access%20link%20in%20your%20confirmation%20email.%0AEND:VEVENT%0AEND:VCALENDAR"
+      download="own-the-inner-game-webinar.ics">
+      + Apple / Outlook (.ics)
+    </a>
+  </div>
+
+  <p class="cal-note">Wednesday, April 29, 2026 · 2:00 PM CET · 45 minutes</p>
+</section>
+
+<!-- PREP QUESTION -->
+<section class="section">
+  <div class="container">
+    <span class="label">Step 03 — Your preparation</span>
+    <div class="rule"></div>
+    <div class="prep-box">
+      <blockquote>Think of a specific moment at the table where you knew what the right play was — but didn't make it. What was happening inside you in that moment?</blockquote>
+      <p>Come with your answer. That's where this webinar begins.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Own The Inner Game &nbsp;·&nbsp; Leonie Roessle &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Imprint</a></p>
+</footer>
+
+</body>
+</html>
