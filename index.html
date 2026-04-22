@@ -83,14 +83,14 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      background: url('Fotos/IMG_8036.jpg') center 15% / cover no-repeat;
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: -80px; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 500px;
-      background: radial-gradient(circle, rgba(157,51,221,0.15) 0%, transparent 68%);
+      inset: 0;
+      background: rgba(0,0,0,0.72);
       pointer-events: none;
     }
 
