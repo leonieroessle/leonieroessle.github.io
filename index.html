@@ -87,13 +87,13 @@
 
     .hero-inner {
       display: grid;
-      grid-template-columns: 1fr 420px;
+      grid-template-columns: 1fr 1fr;
       align-items: stretch;
-      min-height: 600px;
+      min-height: 640px;
     }
 
     .hero-text {
-      padding: 72px 48px 72px 24px;
+      padding: 80px 48px 80px 48px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -117,8 +117,7 @@
         grid-template-columns: 1fr;
       }
       .hero-photo-col {
-        height: 420px;
-        order: -1;
+        height: 480px;
       }
       .hero-text {
         padding: 48px 24px;
@@ -126,13 +125,13 @@
     }
 
     .hero h1 {
-      font-size: clamp(32px, 4.5vw, 58px);
+      font-size: clamp(32px, 4vw, 56px);
       margin-bottom: 12px;
     }
 
     .hero h1 .sub-title {
       display: block;
-      font-size: clamp(15px, 2vw, 22px);
+      font-size: clamp(14px, 1.6vw, 20px);
       color: var(--white);
       letter-spacing: 0.04em;
       margin-top: 10px;
@@ -141,12 +140,31 @@
 
     .hero-desc {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(14px, 1.5vw, 17px);
+      font-size: clamp(14px, 1.3vw, 17px);
       color: var(--grey);
       font-style: italic;
-      max-width: 520px;
+      max-width: 480px;
       margin: 20px 0 36px;
       line-height: 1.65;
+    }
+
+    /* ── HERO BOTTOM BAR ── */
+    .hero-bottom {
+      background: var(--surface);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .hero-bottom {
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
     }
 
     /* ── DATE ROW ── */
@@ -397,31 +415,35 @@
       <h1>
         Own The Inner Game<br>
         <span class="sub-title" style="color:var(--purple-mid);">Unlock Your Full Potential · Perform On Demand</span>
-        <span style="display:block; font-size:clamp(15px,2vw,22px); color:#fff; font-weight:700; letter-spacing:0.04em; margin-top:8px;">Stay Calm, Clear and Unshakeable Under Pressure</span>
+        <span style="display:block; font-size:clamp(14px,1.6vw,20px); color:#fff; font-weight:700; letter-spacing:0.04em; margin-top:8px;">Stay Calm, Clear and Unshakeable Under Pressure</span>
       </h1>
       <p class="hero-desc">You have the skills. You have put in the work.<br>Now it's time to train the system that gives you access to your A-Game.</p>
 
-      <div style="margin-bottom: 36px;">
-        <a href="#register" class="btn" style="font-size:15px; padding:22px 56px; background:var(--purple); color:#fff; border-color:var(--purple);">Reserve My Free Spot</a>
+      <div>
+        <a href="#register" class="btn" style="font-size:15px; padding:20px 52px; background:var(--purple); color:#fff; border-color:var(--purple);">Reserve My Free Spot</a>
         <p style="font-size:11px; color:var(--grey-dim); margin-top:12px; letter-spacing:0.06em;">Free · 45 minutes · Limited spots</p>
       </div>
+    </div>
+    <div class="hero-photo-col">
+      <img src="Fotos/IMG_8036.jpg" alt="Leonie Roessle" />
+    </div>
+  </div>
 
-      <div class="date-row">
-        <div class="date-cell"><span class="dc-l">Date</span><span class="dc-v">April 29, 2026</span></div>
-        <div class="date-cell"><span class="dc-l">Time</span><span class="dc-v">2:00 PM CET</span></div>
-        <div class="date-cell"><span class="dc-l">Duration</span><span class="dc-v">45 Min</span></div>
-        <div class="date-cell"><span class="dc-l">Cost</span><span class="dc-v">Free</span></div>
-      </div>
-
-      <p style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--grey-dim); margin-top:32px; margin-bottom:14px;">Starts in</p>
+  <!-- DATE + COUNTDOWN BAR -->
+  <div class="hero-bottom">
+    <div class="date-row" style="margin-bottom:0;">
+      <div class="date-cell"><span class="dc-l">Date</span><span class="dc-v">April 29, 2026</span></div>
+      <div class="date-cell"><span class="dc-l">Time</span><span class="dc-v">2:00 PM CET</span></div>
+      <div class="date-cell"><span class="dc-l">Duration</span><span class="dc-v">45 Min</span></div>
+      <div class="date-cell"><span class="dc-l">Cost</span><span class="dc-v">Free</span></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <span style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--grey-dim);">Starts in</span>
       <div class="countdown">
         <div class="cd-unit"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Days</span></div>
         <div class="cd-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Hours</span></div>
         <div class="cd-unit"><span class="cd-num" id="cd-min">--</span><span class="cd-lbl">Min</span></div>
       </div>
-    </div>
-    <div class="hero-photo-col">
-      <img src="Fotos/IMG_8036.jpg" alt="Leonie Roessle" />
     </div>
   </div>
 </section>
