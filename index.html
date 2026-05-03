@@ -124,13 +124,37 @@
     @media (max-width: 760px) {
       .hero-inner {
         grid-template-columns: 1fr;
+        min-height: unset;
+        display: flex;
+        flex-direction: column;
       }
+      /* Foto oben, kompakt */
       .hero-photo-col {
-        display: none;
+        display: block;
+        order: -1;
+        height: 48vh;
+        max-height: 370px;
+        overflow: hidden;
       }
+      .hero-photo-col img {
+        object-position: center top;
+      }
+      /* Text-Block kompakter */
       .hero-text {
-        padding: 40px 24px;
+        padding: 20px 24px 20px;
+        text-align: center;
       }
+      .hero-text .btn { display: inline-block; }
+      /* Headline kleiner */
+      .hero h1 { font-size: 26px; margin-bottom: 8px; }
+      .hero h1 .sub-title { font-size: 13px; margin-top: 6px; }
+      /* Beschreibung auf Mobile verstecken — Platz sparen */
+      .hero-desc { display: none; }
+      /* Label kleiner */
+      .hero .label { font-size: 10px; margin-bottom: 10px; }
+      /* Button kompakter */
+      .hero-text .btn { padding: 16px 36px !important; font-size: 13px !important; }
+      .hero-text p[style] { margin-top: 8px !important; }
     }
 
     .hero h1 {
@@ -173,6 +197,11 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+      }
+    }
+    @media (max-width: 760px) {
+      .hero-bottom {
+        padding-top: 0;
       }
     }
 
@@ -424,7 +453,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <span class="label">Free Live Webinar · 45 Minutes</span>
+      <span class="label">Free Live Webinar · 60 Minutes</span>
       <h1>
         Own The Inner Game<br>
         <span class="sub-title" style="color:var(--purple-mid);">Unlock Your Full Potential · Perform On Demand</span>
@@ -434,7 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div>
         <a href="#register" class="btn" style="font-size:15px; padding:20px 52px; background:var(--purple); color:#fff; border-color:var(--purple);">Reserve My Free Spot</a>
-        <p style="font-size:11px; color:var(--grey-dim); margin-top:12px; letter-spacing:0.06em;">Free · 45 minutes · Limited spots</p>
+        <p style="font-size:11px; color:var(--grey-dim); margin-top:12px; letter-spacing:0.06em;">Free · 60 minutes · Limited spots</p>
       </div>
     </div>
     <div class="hero-photo-col">
@@ -447,7 +476,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="date-row" style="margin-bottom:0;">
       <div class="date-cell"><span class="dc-l">Date</span><span class="dc-v">May 20, 2026</span></div>
       <div class="date-cell"><span class="dc-l">Time</span><span class="dc-v">7:00 PM CET</span></div>
-      <div class="date-cell"><span class="dc-l">Duration</span><span class="dc-v">45 Min</span></div>
+      <div class="date-cell"><span class="dc-l">Duration</span><span class="dc-v">60 Min</span></div>
       <div class="date-cell"><span class="dc-l">Cost</span><span class="dc-v">Free</span></div>
     </div>
     <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
@@ -469,15 +498,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <ul class="learnings">
       <li>
         <span class="l-n">→</span>
-        <span class="l-text">You're technically solid — but your A-Game disappears exactly when it matters most</span>
+        <span class="l-text">You are technically solid but your A-Game disappears exactly when it matters most</span>
       </li>
       <li>
         <span class="l-n">→</span>
-        <span class="l-text">You've tried mindset work, meditation, or studying more — and it still doesn't hold under pressure</span>
-      </li>
-      <li>
-        <span class="l-n">→</span>
-        <span class="l-text">You know what the right play is — but something stops you from making it</span>
+        <span class="l-text">You know what the right play is, but something stops you from executing</span>
       </li>
       <li>
         <span class="l-n">→</span>
@@ -525,7 +550,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ABOUT CTA -->
 <section style="padding: 0 24px 24px; text-align:center; background: var(--surface);">
   <a href="#register" class="btn" style="font-size:15px; padding:22px 56px; background:var(--purple); color:#fff; border-color:var(--purple);">Reserve My Free Spot</a>
-  <p style="font-size:11px; color:var(--grey-dim); margin-top:12px; letter-spacing:0.06em;">Free · 45 minutes · May 20, 2026</p>
+  <p style="font-size:11px; color:var(--grey-dim); margin-top:12px; letter-spacing:0.06em;">Free · 60 minutes · May 20, 2026</p>
 </section>
 
 <!-- ABOUT -->
@@ -782,7 +807,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     Unlock Your Full Potential.<br>
     <span style="color:var(--purple-mid);">Perform On Demand.</span>
   </h2>
-  <a href="#register" class="btn">Reserve My Free Spot</a>
+  <a href="#register" class="btn" style="background:var(--purple); color:#fff; border-color:var(--purple);">Reserve My Free Spot</a>
 </section>
 
 <footer>
