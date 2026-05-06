@@ -1105,7 +1105,6 @@ window._load_script = function(url, callback, isSubmit) {
             var err = form_to_submit.querySelector('._form_error');
             if (err) err.parentNode.removeChild(err);
             _load_script('https://leonieroessle68052.activehosted.com/proc.php?' + serialized + '&jsonp=true', null, true);
-            setTimeout(function(){ window.location.href = 'confirmation-page.html'; }, 2500);
         }
         return false;
     };
