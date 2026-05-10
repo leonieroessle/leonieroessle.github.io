@@ -630,7 +630,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="_form_element _x71696345 _full_width">
           <label for="phone" class="_form-label">Mobile number<span class="field-required">*</span></label>
           <div class="_field-wrapper">
-            <input type="text" id="phone" name="phone" placeholder="Tippen Sie Ihre Telefonnummer ein." required/>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required/>
           </div>
         </div>
         <div class="_form_element _x13254090 _full_width " >
@@ -853,7 +853,18 @@ window._show_error = function(id, message, html) {
         button = form.querySelector('button[type="submit"]'),
         old_error = form.querySelector('._form_error');
     if (old_error) old_error.parentNode.removeChild(old_error);
-    err.innerHTML = message;
+    // Translate common German validation messages to English
+    var translations = {
+        'Bitte geben Sie eine gültige Telefonnummer an': 'Please enter a valid phone number (Format: +XXXXXXXXXXXX)',
+        'Bitte füllen Sie dieses Pflichtfeld aus': 'Please fill out this required field.',
+        'Bitte geben Sie eine gültige E-Mail-Adresse ein': 'Please enter a valid email address.',
+        'Ungültiger Wert': 'Invalid value.'
+    };
+    var englishMessage = message;
+    for (var de in translations) {
+        if (message.indexOf(de) !== -1) { englishMessage = translations[de]; break; }
+    }
+    err.innerHTML = englishMessage;
     err.className = '_error-inner _form_error _no_arrow';
     var wrapper = document.createElement('div');
     wrapper.className = '_form-inner _show_be_error';
